@@ -1,5 +1,6 @@
 package com.shopoholic.service;
-import com.shopoholic.model.Product;
+import com.shopoholic.model.*;
+import java.util.Optional;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -51,6 +52,19 @@ public class ProductCatalog {
 
         byCategory.forEach(p->System.out.println(p));
 
+    }
+
+    public Optional<Product> idToProduct(int productId)
+    {
+        for(Product p:catalog)
+        {
+            if(p.getProductId()==productId)
+            {
+                return Optional.of(p);
+            }
+
+        }
+        return Optional.empty();
     }
 
 
